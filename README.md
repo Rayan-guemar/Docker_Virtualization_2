@@ -1,9 +1,10 @@
-_Ce guide explique comment lancer un fichier `docker-compose.yml` qui définit les services pour une application multi-conteneurs. Docker Compose est un outil qui permet de définir et de lancer des applications Docker avec plusieurs conteneurs._
+_Ce guide explique comment exécuter un fichier `docker-compose.yml` qui utilise un fichier `Dockerfile` pour construire les images Docker des services de l'application._
 
 ## Prérequis
-Avant de pouvoir lancer un fichier docker-compose.yml, vous devez avoir installé Docker et Docker Compose sur votre machine.
+Avant de pouvoir exécuter un fichier `docker-compose.yml` avec un fichier `Dockerfile`, vous devez avoir installé Docker et Docker Compose sur votre machine.
 
 Docker: https://docs.docker.com/get-docker/
+
 Docker Compose: https://docs.docker.com/compose/install/
 
 ## Étapes pour lancer un fichier docker-compose.yml
@@ -12,12 +13,12 @@ Ouvrez un terminal et naviguez jusqu'au répertoire où se trouve votre fichier 
 
 Exécutez la commande docker-compose up pour lancer les conteneurs. 
 
-Cette commande va construire les images Docker si elles n'existent pas et démarrer les conteneurs.
+Cette commande va construire les images Docker pour les services définis dans le fichier `docker-compose.yml`.
 
 ``` bash
-$ docker-compose up
+$ docker compose build
 ```
-Si vous souhaitez exécuter les conteneurs en arrière-plan, ajoutez le drapeau -d.
+Cette commande va exécuter les conteneurs en arrière-plan, ajoutez le drapeau -d.
 
 ``` bash
 $ docker-compose up -d
