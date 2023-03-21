@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    build:
+      context: ./postgres
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    ports:
+      - 8181:5432
+    environment:
+      POSTGRES_PASSWORD: tp12023
+      POSTGRES_USER: postgres
+      POSTGRES_DB: Ruben
+    networks:
+      - postgres
+    depends_on:
+      - pgadmin
+
+  web89:
+    image: php:8.2-apache
+    container_name: apache
+    build:
+      context: ./web89
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./web89/html:/var/www/html
+    ports:
+      - 8180:80
+    
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=lucas.crouz@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - 8182:80
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
+  
+
