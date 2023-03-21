@@ -7,6 +7,8 @@ Docker: https://docs.docker.com/get-docker/
 
 Docker Compose: https://docs.docker.com/compose/install/
 
+Ensuite cloner le repository github.
+
 ## Étapes pour lancer un fichier docker-compose.yml
 
 Ouvrez un terminal et naviguez jusqu'au répertoire où se trouve votre fichier docker-compose.yml.
